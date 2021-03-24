@@ -1,0 +1,223 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+     <nav id="navbar">
+         <header>This is a Free code Camp project Technical Documentation Page about javascript most text is from mdn because everyone loves mdn</header>
+         <ul>
+           <li><a class="nav-link" href="#JavaScript_and_Java">JavaScript and Java</a></li>
+           <li><a class="nav-link" href="#Functions">Functions</a></li>
+           <li><a class="nav-link" href="#Defining_functions">Defining functions</a></li>
+           <li><a class="nav-link" href="#Function_expressions">Function expressions</a></li>
+           <li><a class="nav-link" href="#Calling_functions">Calling functions</a></li>
+           <li><a class="nav-link" href="#Function_scope">Function scope</a></li>
+        </ul>
+     </nav>
+    </head>
+    <body>
+       <main id="main-doc">
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+         <div id="empty_div"></div>
+         <section class="main-section" id="JavaScript_and_Java">
+            <header class="header">JavaScript and Java</header>
+            <p>JavaScript and Java are similar in some ways but fundamentally different in some others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript.</p>
+            <p>In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</p>
+            <p>JavaScript is a very free-form language compared to Java. You do not have to declare all variables, classes, and methods. You do not have to be concerned with whether methods are public, private, or protected, and you do not have to implement interfaces. Variables, parameters, and function return types are not explicitly typed.</p>
+            <p>Java is a class-based programming language designed for fast execution and type safety. Type safety means, for instance, that you can't cast a Java integer into an object reference or access private memory by corrupting Java bytecodes. Java's class-based model means that programs consist exclusively of classes and their methods. Java's class inheritance and strong typing generally require tightly coupled object hierarchies. These requirements make Java programming more complex than JavaScript programming.</p>
+            <ul>
+                <li>JavaScript</li>
+                <li>Object-oriented. No distinction between types of objects. Inheritance is through the prototype mechanism, and properties and methods can be added to any object dynamically.</li>
+                <li>Variable data types are not declared (dynamic typing, loosely typed).</li>
+                <li>Cannot automatically write to hard disk.</li>
+            </ul>
+            <ul>
+               <li>Java</li>
+               <li>Class-based. Objects are divided into classes and instances with all inheritance through the class hierarchy. Classes and instances cannot have properties or methods added dynamically.</li>
+               <li>Variable data types must be declared (static typing, strongly typed).</li>
+               <li>Can automatically write to hard disk.</li>
+           </ul>
+            <p>In contrast, JavaScript descends in spirit from a line of smaller, dynamically typed languages such as HyperTalk and dBASE. These scripting languages offer programming tools to a much wider audience because of their easier syntax, specialized built-in functionality, and minimal requirements for object creation.</p>
+
+         </section>
+         <section class="main-section" id="Functions">
+             <header class="header">Functions</header>
+             <p>Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.</p>
+         </section>
+         <section class="main-section" id="Defining_functions">
+             <header class="header">Defining functions</header>
+            <p>A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:</p>
+            <ul>
+                <li>The name of the function.</li>
+                <li>A list of parameters to the function, enclosed in parentheses and separated by commas.</li>
+                <li>The JavaScript statements that define the function, enclosed in curly brackets, {...}.</li>
+            </ul>
+            <p>For example, the following code defines a simple function named square:</p>
+            <div class="code-div">
+              <code>function square(number) {
+               return number * number;
+             }
+               </code>
+            </div>
+             <p>The function square takes one parameter, called number. The function consists of one statement that says to return the parameter of the function (that is, number) multiplied by itself. The statement return specifies the value returned by the function:</p>
+             <div class="code-div">
+               <code>return number * number;</code>
+            </div>
+             <p>Primitive parameters (such as a number) are passed to functions by value; the value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function.</p>
+             <p>If you pass an object (i.e. a non-primitive value, such as Array or a user-defined object) as a parameter and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</p>
+             <div class="code-div">
+               <code>function myFunc(theObject) {
+               theObject.make = 'Toyota';
+             }
+             
+             var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+             var x, y;
+             
+             x = mycar.make; // x gets the value "Honda"
+             
+             myFunc(mycar);
+             y = mycar.make; // y gets the value "Toyota"
+                             // (the make property was changed by the function)
+               </code>
+              </div>
+         </section>
+         <section class="main-section" id="Function_expressions">
+            <header class="header">Function expressions</header>
+            <p>While the function declaration above is syntactically a statement, functions can also be created by a function expression.</p>
+            <p>Such a function can be anonymous; it does not have to have a name. For example, the function square could have been defined as:</p>
+            <div class="code-div">
+              <code>const square = function(number) { return number * number }
+              var x = square(4) // x gets the value 16</code>
+              <p>However, a name can be provided with a function expression. Providing a name allows the function to refer to itself, and also makes it easier to identify the function in a debugger's stack traces:</p>
+            </div>
+            <div class="code-div">
+              <code>const factorial = function fac(n) { return n  2 ? 1 : n * fac(n - 1) }
+                  console.log(factorial(3))
+              </code>
+            </div>
+                  <p>Function expressions are convenient when passing a function as an argument to another function. The following example shows a map function that should receive a function as first argument and an array as second argument. </p>
+                  <div class="code-div">
+                    <code>function map(f, a) {
+                      let result = []; // Create a new Array
+                      let i; // Declare variable
+                      for (i = 0; i != a.length; i++)
+                        result[i] = f(a[i]);
+                      return result;
+                    }
+                    </code>
+                  </div>
+                    <p>In the following code, the function receives a function defined by a function expression and executes it for every element of the array received as a second argument. </p>
+                    <div class="code-div">
+                      <code>function map(f, a) {
+                      let result = []; // Create a new Array
+                      let i; // Declare variable
+                      for (i = 0; i != a.length; i++)
+                        result[i] = f(a[i]);
+                      return result;
+                    }
+                    const f = function(x) {
+                       return x * x * x;
+                    }
+                    let numbers = [0, 1, 2, 5, 10];
+                    let cube = map(f,numbers);
+                    console.log(cube);
+                    }</code>
+                  </div>
+                  <p>Function returns: [0, 1, 8, 125, 1000].
+                    In JavaScript, a function can be defined based on a condition. For example, the following function definition defines myFunc only if num equals 0:</p>
+                    <div class="code-div">
+                    <code>var myFunc;
+                          if (num === 0) {
+                            myFunc = function(theObject) {
+                              theObject.make = 'Toyota';
+                            }
+                          }</code>
+                    </div>
+                          <p>In addition to defining functions as described here, you can also use the Function constructor to create functions from a string at runtime, much like eval().
+
+                              A method is a function that is a property of an object. Read more about objects and methods in Working with objects.</p>
+         </section>
+         <section class="main-section" id="Calling_functions">
+             <header class="header">Calling functions</header>
+             <p>Defining a function does not execute it. Defining it names the function and specifies what to do when the function is called.</p>
+             <p>Calling the function actually performs the specified actions with the indicated parameters. For example, if you define the function square, you could call it as follows:</p>
+             <div class="code-div">
+               <code>square(5);</code>
+            </div>
+             <p>The preceding statement calls the function with an argument of 5. The function executes its statements and returns the value 25.</p>
+             <p>Functions must be in scope when they are called, but the function declaration can be hoisted (appear below the call in the code), as in this example:</p>
+              <div class="code-div"> 
+               <code>console.log(square(5));
+                /* ... */
+                function square(n) { return n * n }
+                </code>
+              </div>
+                <p>The scope of a function is the function in which it is declared (or the entire program, if it is declared at the top level).</p>
+                <p>Note: This works only when defining the function using the above syntax (i.e. function funcName(){}). The code below will not work.
+
+                    This means that function hoisting only works with function declarations—not with function expressions.<div class="code-div"><code>console.log(square)    // square is hoisted with an initial value undefined.
+                        console.log(square(5)) // Uncaught TypeError: square is not a function
+                        const square = function(n) {
+                          return n * n;
+                        }</code></div></p>
+              <p>The arguments of a function are not limited to strings and numbers. You can pass whole objects to a function. The showProps() function (defined in Working with objects) is an example of a function that takes an object as an argument.</p>
+              <p>A function can call itself. For example, here is a function that computes factorials recursively:</p>
+              <div class="code-div">   
+                <code>function factorial(n) {
+                if ((n === 0) || (n === 1))
+                  return 1;
+                else
+                  return (n * factorial(n - 1));
+              }
+                </code>
+                </div>
+              <p>You could then compute the factorials of 1 through 5 as follows:</p>
+              <div class="code-div">   
+                <code>var a, b, c, d, e;
+                a = factorial(1); // a gets the value 1
+                b = factorial(2); // b gets the value 2
+                c = factorial(3); // c gets the value 6
+                d = factorial(4); // d gets the value 24
+                e = factorial(5); // e gets the value 120
+                </code>
+              </div>
+              <p>There are other ways to call functions. There are often cases where a function needs to be called dynamically, or the number of arguments to a function vary, or in which the context of the function call needs to be set to a specific object determined at runtime.</p>
+              <p>It turns out that functions are themselves objects—and in turn, these objects have methods. (See the Function object.) One of these, the apply() method, can be used to achieve this goal.</p>
+         </section>
+         <section class="main-section" id="Function_scope">
+             <header class="header">Function scope</header>
+             <p>Variables defined inside a function cannot be accessed from anywhere outside the function, because the variable is defined only in the scope of the function. However, a function can access all variables and functions defined inside the scope in which it is defined.</p>
+             <p>In other words, a function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function, and any other variables to which the parent function has access.</p>
+             <div class="code-div">
+               <code>// The following variables are defined in the global scope
+                var num1 = 20,
+                    num2 = 3,
+                    name = 'Chamahk';
+                
+                // This function is defined in the global scope
+                function multiply() {
+                  return num1 * num2;
+                }
+                
+                multiply(); // Returns 60
+                
+                // A nested function example
+                function getScore() {
+                  var num1 = 2,
+                      num2 = 3;
+                
+                  function add() {
+                    return name + ' scored ' + (num1 + num2);
+                  }
+                
+                  return add();
+                }
+                
+                getScore(); // Returns "Chamahk scored 5"
+                </code>
+              </div>
+         </section>
+       </main>
+       <footer>
+
+       </footer>
+    </body>
+</html>

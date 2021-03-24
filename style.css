@@ -1,0 +1,49 @@
+#navbar {
+    width: 300px;
+      top: 100px;
+      left: 100px;
+    background-color: white;
+  }
+  @media screen and (max-width: 992px) {
+    nav {
+      background-color: white;
+      position: fixed;
+      top: 0px;
+      left: -10px;
+      width: 100px;
+    }
+  }
+  main{
+    text-align: center;
+  }
+  .header{
+      font-size: 33px;
+  }
+  .code-div {
+      border: 5px solid black;
+      background-color: white;
+  }
+  #JavaScript_and_Java {
+    border: 5px solid black;
+    background-color: dodgerblue;
+  }
+  #Functions {
+    border: 5px solid black;
+    background-color: orange;
+  }
+  #Defining_functions {
+    border: 5px solid black;
+    background-color: dodgerblue;
+  }
+  #Function_expressions {
+    border: 5px solid black;
+    background-color: orange;
+  }
+  #Calling_functions {
+    border: 5px solid black;
+    background-color: dodgerblue;
+  }
+  #Function_scope {
+    border: 5px solid black;
+    background-color: orange;
+  }
