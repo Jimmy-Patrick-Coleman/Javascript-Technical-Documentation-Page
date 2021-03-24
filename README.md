@@ -4,4 +4,5 @@ It had to be deleted because reuploading was faster than dealing with changing t
 
 This is my Javascript Technical Documentation Page.
 
-view at https://jimmypcoleman.github.io/Javascript-Technical-Documentation-Page/
+view at 
+
